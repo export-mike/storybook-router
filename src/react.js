@@ -54,6 +54,7 @@ if (typeof MemoryRouter !== 'undefined') {
   StoryRouter = _storyRouter;
 }
 else { // react-router V3 specific components
+  console.log('We are in v3 mode')
   const _innerComponent = (props) => (
     <Router history={props.history} routes={props.routes} />
   );
