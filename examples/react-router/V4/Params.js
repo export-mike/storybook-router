@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { Route, Link } from 'react-router-dom';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-react-router';
 
 const ChildId = ({match}) => (
   <div>

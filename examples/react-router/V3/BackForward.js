@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Link, withRouter } from 'react-router';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-react-router';
 
 const BackButton = withRouter(
   props => <button onClick={props.router.goBack}>Back</button>

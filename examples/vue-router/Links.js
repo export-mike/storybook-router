@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { linkTo } from '@storybook/addon-links';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-vue-router';
 
 const TargetComponent = {
   template: '<div>The target component</div>'

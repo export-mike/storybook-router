@@ -1,0 +1,47 @@
+{
+  "name": "storybook-react-router",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A storybook decorator for react-router that allows you to use routing-aware components in your stories.",
+  "main": "./dist/index.js",
+  "author": [
+    "Gianni Valdambrini",
+    "Mike James"
+  ],
+  "dependencies": {
+    "@storybook/addon-actions": "^3.2.10"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-router": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gvaldambrini/storybook-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gvaldambrini/storybook-router/issues"
+  },
+  "homepage": "https://github.com/gvaldambrini/storybook-router",
+  "keywords": [
+    "storybook",
+    "react",
+    "react-router",
+    "vue",
+    "vue-router"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1"
+  },
+  "peer-dependencies": {
+    "react": "^16"
+  },
+  "scripts": {
+    "lint": "eslint src/* examples/*",
+    "prepublish": "NODE_ENV=production npm run build",
+    "build": "babel -d dist/ src/"
+  }
+}

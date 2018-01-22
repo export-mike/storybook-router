@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 import { Route, Link } from 'react-router-dom';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-react-router';
 
 const Home = () => (
   <div>

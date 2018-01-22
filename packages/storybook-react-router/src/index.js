@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { action } from '@storybook/addon-actions';
 import {
   MemoryRouter, // V4
   matchPath, // V4
   Route,
-  Router, // V3
-  createMemoryHistory // V3
 } from 'react-router';
 
 let StoryRouter, InnerComponent, match;
@@ -15,10 +12,6 @@ let StoryRouter, InnerComponent, match;
 // react-router V4 specific components
 if (typeof MemoryRouter !== 'undefined') {
   const _innerComponent = props => props.story();
-
-  _innerComponent.propTypes = {
-    story: PropTypes.func.isRequired,
-  };
 
   InnerComponent = _innerComponent;
 
@@ -45,73 +38,8 @@ if (typeof MemoryRouter !== 'undefined') {
     </MemoryRouter>
   );
 
-  _storyRouter.propTypes = {
-    story: PropTypes.func.isRequired,
-    links: PropTypes.object,
-    routerProps: PropTypes.object
-  };
-
   StoryRouter = _storyRouter;
 }
-else { // react-router V3 specific components
-  const _innerComponent = (props) => (
-    <Router history={props.history} routes={props.routes} />
-  );
-
-  _innerComponent.propTypes = {
-    history: PropTypes.object.isRequired,
-    routes: PropTypes.element.isRequired,
-  };
-
-  InnerComponent = _innerComponent;
-
-  match = (link, path) => {
-    return link === path;
-  };
-
-  class _storyRouter extends Component {
-    constructor(props) {
-      super(props);
-      const { routerProps = {} } = this.props;
-      this.history = createMemoryHistory(
-        routerProps.initialEntry ? routerProps.initialEntry : '/'
-      );
-    }
-
-    render() {
-      const { story, links, routerProps = {} } = this.props;
-
-      let routes;
-      if (routerProps.autoRoute !== false) {
-        routes = (
-          <Route
-            path={this.history.getCurrentLocation().pathname}
-            component={() => story()}/>
-        );
-      }
-      else {
-        routes = story();
-      }
-
-      return (
-        <HistoryWatcher
-          routes={routes}
-          history={this.history}
-          location={this.history.getCurrentLocation()}
-          links={links}/>
-      );
-    }
-  }
-
-  _storyRouter.propTypes = {
-    story: PropTypes.func.isRequired,
-    links: PropTypes.object,
-    routerProps: PropTypes.object
-  };
-
-  StoryRouter = _storyRouter;
-}
-
 // Common components
 
 class HistoryWatcher extends Component {
@@ -153,12 +81,6 @@ class HistoryWatcher extends Component {
     return <InnerComponent {...this.props}/>;
   }
 }
-
-HistoryWatcher.propTypes = {
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  links: PropTypes.object,
-};
 
 const storyRouterDecorator = (links, routerProps) => {
   const s = story => (

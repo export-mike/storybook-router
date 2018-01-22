@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Route, Link, withRouter } from 'react-router';
 import { storiesOf } from '@storybook/react';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-react-router';
 
 const App = ({children}) => (
   <div>

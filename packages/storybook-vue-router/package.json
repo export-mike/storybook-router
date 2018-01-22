@@ -1,0 +1,30 @@
+{
+  "name": "storybook-vue-router",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A storybook decorator for vue-router that allows you to use routing-aware components in your stories.",
+  "main": "./dist/index.js",
+  "author": [
+    "Gianni Valdambrini",
+    "Mike James"
+  ],
+  "dependencies": {
+    "@storybook/addon-actions": "^3.2.10"
+  },
+  "peerDependencies": {
+    "vue": "^2.4.4",
+    "vue-router": "^2.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "react-scripts": "^1.0.7"
+  },
+  "scripts": {
+    "lint": "eslint src/* examples/*",
+    "prepublish": "NODE_ENV=production npm run build",
+    "build": "babel -d dist/ src/"
+  }
+}

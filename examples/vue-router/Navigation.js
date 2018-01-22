@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue';
 
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-vue-router';
 
 const Home = {
   template: '<div>Home</div>'
